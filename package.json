@@ -19,5 +19,8 @@
   "type": "module",
   "bin": {
     "code": "bin/brain-games.js"
+  },
+  "bin": {
+    "brain-games": "bin/brain-games.js"
   }
 }
