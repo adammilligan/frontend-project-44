@@ -18,9 +18,9 @@
   "homepage": "https://github.com/adammilligan/frontend-project-44#readme",
   "type": "module",
   "bin": {
-    "code": "bin/brain-games.js"
-  },
-  "bin": {
     "brain-games": "bin/brain-games.js"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
   }
 }
