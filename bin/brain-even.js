@@ -1,6 +1,10 @@
+#!/usr/bin/env node
+
 import readlineSync from 'readline-sync';
 import { hello } from '../src/cli.js';
-const name = hello ();
+
+const name = hello();
+
 console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
 const doComparison = (checkNumber) => {
