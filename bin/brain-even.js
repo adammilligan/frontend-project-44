@@ -2,6 +2,7 @@
 
 import readlineSync from 'readline-sync';
 import { hello } from '../src/cli.js';
+import {randomNumber} from "../src/index.js";
 
 const name = hello();
 
@@ -17,7 +18,7 @@ const doComparison = (checkNumber) => {
 
 let i = 0;
 while (i < 3) {
-    let checkNumber = Math.round(Math.random() * 100);
+    let checkNumber = randomNumber(1, 100);
     console.log(`Question: ${checkNumber}`);
     let result = doComparison(checkNumber);
     const answer = readlineSync.question('Your answer: ');

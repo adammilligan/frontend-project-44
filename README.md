@@ -3,3 +3,4 @@
 <a href="https://codeclimate.com/github/adammilligan/frontend-project-44/maintainability"><img src="https://api.codeclimate.com/v1/badges/a2cab5273d68b3f26b17/maintainability" /></a>
 https://asciinema.org/a/muaolGdlL0HNZM8pJhFvS8B7k  - brain-even
 https://asciinema.org/a/ZOlIeuyERF6tHT6DEmXFpqckW  - brain-calc
+https://asciinema.org/a/NKV08EhheAOnXGULobYaUQQqV   - brain-gcd

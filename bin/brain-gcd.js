@@ -5,27 +5,27 @@ import { hello } from '../src/cli.js';
 import {randomNumber} from "../src/index.js";
 
 const name = hello ();
+console.log('Find the greatest common divisor of given numbers.');
 
-let doSolution = (firstNumber, secondNumber, operation) => {
-    let result;
-    if (operation === '+') {
-        result = firstNumber + secondNumber;
-    } else if (operation === '-') {
-        result = firstNumber - secondNumber;
-    } else {
-        result = firstNumber * secondNumber;
+let doDivisionArray = (number) => {
+    let divisorArray = [];
+    for (let j = 0; j <= number; j += 1) {
+        if ((number / j) === Math.round(number / j)) {
+            divisorArray.push(j);
+        }
     }
-    return result;
+    return divisorArray;
 }
+
 let i = 0;
 while (i < 3) {
     let firstNumber = randomNumber(1, 100);
     let secondNumber = randomNumber(1, 100);
-    let operationsArray = ['+', '-', '*'];
-    let rand = Math.floor(Math.random()*operationsArray.length);
-    let operation = operationsArray[rand];
-    console.log(`Question: ${firstNumber} ${operation} ${secondNumber}`);
-    let result = doSolution(firstNumber, secondNumber, operation);
+    let firstDivisorArray = doDivisionArray(firstNumber);
+    let secondDivisorArray = doDivisionArray(secondNumber);
+    let tempArray = firstDivisorArray.filter(x => secondDivisorArray.indexOf(x) !== -1);
+    let result = Math.max(...tempArray);
+    console.log(`Question: ${firstNumber} ${secondNumber}`);
     const answer = readlineSync.question('Your answer: ');
     if (Number(result) === Number(answer)) {
         i += 1;
