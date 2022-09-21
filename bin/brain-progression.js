@@ -2,39 +2,39 @@
 
 import readlineSync from 'readline-sync';
 import { hello } from '../src/cli.js';
-import {randomNumber} from "../src/index.js";
+import { randomNumber } from '../src/index.js';
 
-const name = hello ();
+const name = hello();
 console.log('What number is missing in the progression?');
 
-let doProgression = (number , increment) => {
-    let tempArray = [];
-    let x = 0;
-    while (tempArray.length < 10) {
-        tempArray.push(number)
-        number = number + increment;
-    }
-    return tempArray;
-}
+const doProgression = (number, increment) => {
+  const tempArray = [];
+  let tempNumber = number;
+  while (tempArray.length < 10) {
+    tempArray.push(tempNumber);
+    tempNumber += increment;
+  }
+  return tempArray;
+};
 let i = 0;
 while (i < 3) {
-    let firstNumber = randomNumber(1, 100);
-    let increment = randomNumber(1, 10);
-    let passNumber = randomNumber(1, 10);
-    let tempArray = doProgression(firstNumber, increment)
-    let result = tempArray[passNumber - 1];
-    tempArray[passNumber - 1] = '..';
-    console.log(`Question: ${tempArray.join(' ')}`);
-    const answer = readlineSync.question('Your answer: ');
-    if (Number(result) === Number(answer)) {
-        i += 1;
-        console.log('Correct!');
-    } else {
-        console.log(`'${answer.toLowerCase()}' is wrong answer ;(. Correct answer was '${result}'
+  const firstNumber = randomNumber(1, 100);
+  const increment = randomNumber(1, 10);
+  const passNumber = randomNumber(1, 10);
+  const tempArray = doProgression(firstNumber, increment);
+  const result = tempArray[passNumber - 1];
+  tempArray[passNumber - 1] = '..';
+  console.log(`Question: ${tempArray.join(' ')}`);
+  const answer = readlineSync.question('Your answer: ');
+  if (Number(result) === Number(answer)) {
+    i += 1;
+    console.log('Correct!');
+  } else {
+    console.log(`'${answer.toLowerCase()}' is wrong answer ;(. Correct answer was '${result}'
 Let's try again, ${name}!`);
-        break;
-    }
+    break;
+  }
 }
 if (i === 3) {
-    console.log(`Congratulations, ${name}!`);
+  console.log(`Congratulations, ${name}!`);
 }
