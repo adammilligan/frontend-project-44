@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
-import readlineSync from 'readline-sync';
 import randomNumber from './utils.js';
-import { doCountAnswer } from './index.js';
+import { answerProgression, doIterations, youAnswer } from './index.js';
+import hello from './cli.js';
 
 export default () => {
-  console.log('What number is missing in the progression?');
-
+  const name = hello();
+  answerProgression();
   const doProgression = (number, increment) => {
     const tempArray = [];
     let tempNumber = number;
@@ -16,15 +16,19 @@ export default () => {
     }
     return tempArray;
   };
-  const firstNumber = randomNumber(1, 100);
-  const increment = randomNumber(1, 10);
-  const passNumber = randomNumber(1, 10);
-  const tempArray = doProgression(firstNumber, increment);
-  const result = tempArray[passNumber - 1];
-  tempArray[passNumber - 1] = '..';
-  console.log(`Question: ${tempArray.join(' ')}`);
-
-  const answer = readlineSync.question('Your answer: ');
-
-  doCountAnswer(result, answer);
+  const callback = () => {
+    const firstNumber = randomNumber(1, 100);
+    const increment = randomNumber(1, 10);
+    const passNumber = randomNumber(1, 10);
+    const tempArray = doProgression(firstNumber, increment);
+    const result = tempArray[passNumber - 1];
+    tempArray[passNumber - 1] = '..';
+    console.log(`Question: ${tempArray.join(' ')}`);
+    const answer = Number(youAnswer());
+    return {
+      result,
+      answer,
+    };
+  };
+  doIterations(name, callback);
 };

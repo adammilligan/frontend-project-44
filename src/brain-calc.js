@@ -1,36 +1,41 @@
 #!/usr/bin/env node
 
-import readlineSync from 'readline-sync';
+import randomNumber from './utils.js';
+import { doIterations, youAnswer } from './index.js';
 import hello from './cli.js';
-import { calc, doCalcQuestion } from './index.js';
 
 export default () => {
   const name = hello();
-
-  let i = 0;
-
-  while (i < 3) {
-    const {
-      firstNumber,
-      secondNumber,
-      operation,
-    } = doCalcQuestion();
-
-    const answer = readlineSync.question('Your answer: ');
-
-    const result = calc(firstNumber, secondNumber, operation);
-
-    if (result === answer) {
-      i += 1;
-      console.log('Correct!');
-    } else {
-      console.log(`'${answer.toLowerCase()}' is wrong answer ;(. Correct answer was '${result}'
-Let's try again, ${name}!`);
-      break;
+  const calc = (firstNumber, secondNumber, operation) => {
+    let result;
+    switch (operation) {
+      case '+':
+        result = firstNumber + secondNumber;
+        break;
+      case '-':
+        result = firstNumber - secondNumber;
+        break;
+      case '*':
+        result = firstNumber * secondNumber;
+        break;
+      default:
+        result = null;
     }
-  }
-
-  if (i === 3) {
-    console.log(`Congratulations, ${name}!`);
-  }
+    return result;
+  };
+  const callback = () => {
+    const firstNumber = randomNumber(1, 100);
+    const secondNumber = randomNumber(1, 100);
+    const operationsArray = ['+', '-', '*'];
+    const randomIndex = Math.floor(Math.random() * operationsArray.length);
+    const operation = operationsArray[randomIndex];
+    console.log(`Question: ${firstNumber} ${operation} ${secondNumber}`);
+    const result = calc(firstNumber, secondNumber, operation);
+    const answer = Number(youAnswer());
+    return {
+      answer,
+      result,
+    };
+  };
+  doIterations(name, callback);
 };

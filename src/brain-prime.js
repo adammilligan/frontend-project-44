@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
-import readlineSync from 'readline-sync';
 import randomNumber from './utils.js';
-import { doCountAnswer } from './index.js';
+import { answerYesNoPrime, doIterations, youAnswer } from './index.js';
+import hello from './cli.js';
 
 export default () => {
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-
+  const name = hello();
+  answerYesNoPrime();
   const isPrimeNum = (num) => {
     for (let i = 2; i < num; i += 1) {
       if (num % i === 0) {
@@ -15,11 +15,15 @@ export default () => {
     }
     return 'yes';
   };
-
-  const checkNumber = randomNumber(1, 100);
-  console.log(`Question: ${checkNumber}`);
-  const result = isPrimeNum(checkNumber);
-  const answer = readlineSync.question('Your answer: ');
-
-  doCountAnswer(result, answer);
+  const callback = () => {
+    const checkNumber = randomNumber(1, 100);
+    console.log(`Question: ${checkNumber}`);
+    const result = isPrimeNum(checkNumber);
+    const answer = (youAnswer()).toLowerCase();
+    return {
+      result,
+      answer,
+    };
+  };
+  doIterations(name, callback);
 };

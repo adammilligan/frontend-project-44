@@ -17,7 +17,7 @@ brain-prime: #запускает игру brain-prime
 	node bin/brain-prime.js
 
 brain-progression: #запускает игру brain-progression:
-	node bin/brain-progression:.js
+	node bin/brain-progression.js
 
 publish: #
 	npm publish --dry-run

@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
-import readlineSync from 'readline-sync';
 import randomNumber from './utils.js';
-import { doCountAnswer } from './index.js';
+import { answerYesNoEven, doIterations, youAnswer } from './index.js';
+import hello from './cli.js';
 
 export default () => {
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
-
+  const name = hello();
+  answerYesNoEven();
   const doComparison = (checkNumber) => {
     if (checkNumber % 2 === 0) {
       return 'yes';
@@ -14,10 +14,15 @@ export default () => {
     return 'no';
   };
 
-  const checkNumber = randomNumber(1, 100);
-  console.log(`Question: ${checkNumber}`);
-  const result = doComparison(checkNumber);
-  const answer = readlineSync.question('Your answer: ');
-
-  doCountAnswer(result, answer);
+  const callback = () => {
+    const checkNumber = randomNumber(1, 100);
+    console.log(`Question: ${checkNumber}`);
+    const result = doComparison(checkNumber);
+    const answer = (youAnswer()).toLowerCase();
+    return {
+      result,
+      answer,
+    };
+  };
+  doIterations(name, callback);
 };

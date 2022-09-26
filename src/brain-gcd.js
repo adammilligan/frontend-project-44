@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
-import readlineSync from 'readline-sync';
 import randomNumber from './utils.js';
-import { doCountAnswer } from './index.js';
+import { answerDivisorNumber, doIterations, youAnswer } from './index.js';
+import hello from './cli.js';
 
 export default () => {
-  console.log('Find the greatest common divisor of given numbers.');
-
+  const name = hello();
+  answerDivisorNumber();
   const doDivisionArray = (number) => {
     const divisorArray = [];
     for (let j = 0; j <= number; j += 1) {
@@ -16,15 +16,19 @@ export default () => {
     }
     return divisorArray;
   };
-
-  const firstNumber = randomNumber(1, 100);
-  const secondNumber = randomNumber(1, 100);
-  const firstDivisorArray = doDivisionArray(firstNumber);
-  const secondDivisorArray = doDivisionArray(secondNumber);
-  const tempArray = firstDivisorArray.filter((x) => secondDivisorArray.indexOf(x) !== -1);
-  const result = Math.max(...tempArray);
-  console.log(`Question: ${firstNumber} ${secondNumber}`);
-  const answer = readlineSync.question('Your answer: ');
-
-  doCountAnswer(result, answer);
+  const callback = () => {
+    const firstNumber = randomNumber(1, 100);
+    const secondNumber = randomNumber(1, 100);
+    const firstDivisorArray = doDivisionArray(firstNumber);
+    const secondDivisorArray = doDivisionArray(secondNumber);
+    const tempArray = firstDivisorArray.filter((x) => secondDivisorArray.indexOf(x) !== -1);
+    const result = Math.max(...tempArray);
+    console.log(`Question: ${firstNumber} ${secondNumber}`);
+    const answer = Number(youAnswer());
+    return {
+      result,
+      answer,
+    };
+  };
+  doIterations(name, callback);
 };
