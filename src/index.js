@@ -7,6 +7,7 @@ export const answerDivisorNumber = () => console.log('Find the greatest common d
 export const youAnswer = () => readlineSync.question('Your answer: ');
 export const answerProgression = () => console.log('What number is missing in the progression?');
 export const answerYesNoPrime = () => console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+
 export const doIterations = (name, callback) => {
   let i = 0;
 

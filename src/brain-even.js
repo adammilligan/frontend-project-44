@@ -13,7 +13,6 @@ export default () => {
     }
     return 'no';
   };
-
   const callback = () => {
     const checkNumber = randomNumber(1, 100);
     console.log(`Question: ${checkNumber}`);
