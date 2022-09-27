@@ -11,7 +11,7 @@ Game list:
 4. brain-progression
 5. brain-prime
 
-Minimum requirements: node.js, terminal(command line)
+Minimum requirements: node.js v16.17.0, terminal(command line), linux or macos.
 
 For installation:
 1. chmod +x bin/brain-games.js  (brain-games - games name) - add execution rights
