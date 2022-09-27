@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { randomNumberOnoToOneHundred, randomNumberOnoToTen } from '../utils.js';
+import { randomNumberOneToOneHundred, randomNumberOneToTen } from '../utils.js';
 import { doIterations, convertUserAnswerToNumber, doProgression } from '../index.js';
 import hello from '../cli.js';
 
@@ -8,9 +8,9 @@ export default () => {
   const name = hello();
   console.log('What number is missing in the progression?');
   const toGenerateResults = () => {
-    const firstNumber = randomNumberOnoToOneHundred();
-    const increment = randomNumberOnoToTen();
-    const passNumber = randomNumberOnoToTen();
+    const firstNumber = randomNumberOneToOneHundred();
+    const increment = randomNumberOneToTen();
+    const passNumber = randomNumberOneToTen();
     const tempArray = doProgression(firstNumber, increment);
     const result = tempArray[passNumber - 1];
     tempArray[passNumber - 1] = '..';
