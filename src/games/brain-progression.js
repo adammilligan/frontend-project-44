@@ -6,7 +6,7 @@ import getUser from '../cli.js';
 
 const createProgression = (number, increment) => {
   const MAX_NUMBER = 10;
-  const MIN_NUMBER = 4;
+  const MIN_NUMBER = 5;
   const progressionLength = randomNumber(MIN_NUMBER, MAX_NUMBER);
   const tempArray = [];
   for (let i = number; tempArray.length < progressionLength; i += increment) {
