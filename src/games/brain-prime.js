@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 
 import randomNumber from '../utils.js';
-import { doIterations, doYouAnswer, runQuestion, declareConditionYesOrNo } from '../index.js';
+import {
+  doIterations, doYouAnswer, runQuestion, declareConditionYesOrNo,
+} from '../index.js';
 import getUser from '../cli.js';
 
 const MAX_NUMBER = 100;
