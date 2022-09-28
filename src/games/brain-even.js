@@ -1,9 +1,7 @@
 #!/usr/bin/env node
 
 import randomNumber from '../utils.js';
-import {
-  doIterations, doYouAnswer, runQuestion, declareConditionYesOrNo,
-} from '../index.js';
+import { doIterations, doYouAnswer, runQuestion } from '../index.js';
 import getUser from '../cli.js';
 
 const MAX_NUMBER = 100;
@@ -13,7 +11,7 @@ const isEven = (checkNumber) => checkNumber % 2 === 0;
 
 export default () => {
   const name = getUser();
-  declareConditionYesOrNo();
+  console.log('Answer "yes" if the number is even, otherwise answer "no".')
   const comparisonData = () => {
     const checkNumber = randomNumber(MAX_NUMBER, MIN_NUMBER);
     runQuestion(`${checkNumber}`);

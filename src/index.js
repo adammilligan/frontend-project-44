@@ -4,7 +4,6 @@ import readlineSync from 'readline-sync';
 
 export const doYouAnswer = () => (readlineSync.question('Your answer: ')).toLowerCase();
 export const runQuestion = (string) => console.log(`Question: ${string}`);
-export const declareConditionYesOrNo = () => console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
 export const doIterations = (name, comparisonData) => {
   const numberOfRound = 3;
