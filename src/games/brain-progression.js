@@ -28,6 +28,7 @@ export default () => {
     const passNumber = randomNumber(MIN_NUMBER, MAX_INCREMENT_NUMBER);
     const tempArray = createProgression(firstNumber, increment);
     const result = String(tempArray[passNumber - 1]);
+    console.log(result);
     tempArray[passNumber - 1] = '..';
     runQuestion(`${tempArray.join(' ')}`);
     const answer = doYouAnswer();
