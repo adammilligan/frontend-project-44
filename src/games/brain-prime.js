@@ -1,21 +1,33 @@
 #!/usr/bin/env node
 
-import { randomNumberOneToOneHundred } from '../utils.js';
-import { doIterations, doYouAnswer, isPrimeNum } from '../index.js';
-import hello from '../cli.js';
+import randomNumber from '../utils.js';
+import { doIterations, doYouAnswer, runQuestion } from '../index.js';
+import getUser from '../cli.js';
+
+const MAX_NUMBER = 100;
+const MIN_NUMBER = 1;
+
+const isPrimeNum = (num) => {
+  for (let i = 2; i < num; i += 1) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
+};
 
 export default () => {
-  const name = hello();
+  const name = getUser();
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-  const toGenerateResults = () => {
-    const checkNumber = randomNumberOneToOneHundred();
-    console.log(`Question: ${checkNumber}`);
+  const comparisonData = () => {
+    const checkNumber = randomNumber(MAX_NUMBER, MIN_NUMBER);
+    runQuestion(`${checkNumber}`);
     const result = isPrimeNum(checkNumber) ? 'yes' : 'no';
-    const answer = (doYouAnswer()).toLowerCase();
+    const answer = doYouAnswer();
     return {
       result,
       answer,
     };
   };
-  doIterations(name, toGenerateResults);
+  doIterations(name, comparisonData);
 };

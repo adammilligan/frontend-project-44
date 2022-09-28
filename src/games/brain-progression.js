@@ -1,25 +1,40 @@
 #!/usr/bin/env node
 
-import { randomNumberOneToOneHundred, randomNumberOneToTen } from '../utils.js';
-import { doIterations, convertUserAnswerToNumber, doProgression } from '../index.js';
-import hello from '../cli.js';
+import randomNumber from '../utils.js';
+import { doIterations, doYouAnswer, runQuestion } from '../index.js';
+import getUser from '../cli.js';
+
+const createProgression = (number, increment) => {
+  const MAX_NUMBER = 10;
+  const MIN_NUMBER = 4;
+  const progressionLength = randomNumber(MIN_NUMBER, MAX_NUMBER);
+  const tempArray = [];
+  for (let i = number; tempArray.length < progressionLength; i += increment) {
+    tempArray.push(i);
+  }
+  return tempArray;
+};
+
+const MAX_NUMBER = 100;
+const MIN_NUMBER = 1;
+const MAX_INCREMENT_NUMBER = 10;
 
 export default () => {
-  const name = hello();
+  const name = getUser();
   console.log('What number is missing in the progression?');
-  const toGenerateResults = () => {
-    const firstNumber = randomNumberOneToOneHundred();
-    const increment = randomNumberOneToTen();
-    const passNumber = randomNumberOneToTen();
-    const tempArray = doProgression(firstNumber, increment);
-    const result = tempArray[passNumber - 1];
+  const comparisonData = () => {
+    const firstNumber = randomNumber(MIN_NUMBER, MAX_NUMBER);
+    const increment = randomNumber(MIN_NUMBER, MAX_INCREMENT_NUMBER);
+    const passNumber = randomNumber(MIN_NUMBER, MAX_INCREMENT_NUMBER);
+    const tempArray = createProgression(firstNumber, increment);
+    const result = String(tempArray[passNumber - 1]);
     tempArray[passNumber - 1] = '..';
-    console.log(`Question: ${tempArray.join(' ')}`);
-    const answer = convertUserAnswerToNumber();
+    runQuestion(`${tempArray.join(' ')}`);
+    const answer = doYouAnswer();
     return {
       result,
       answer,
     };
   };
-  doIterations(name, toGenerateResults);
+  doIterations(name, comparisonData);
 };
