@@ -11,7 +11,7 @@ const isEven = (checkNumber) => checkNumber % 2 === 0;
 
 export default () => {
   const name = getUser();
-  console.log('Answer "yes" if the number is even, otherwise answer "no".')
+  console.log('Answer "yes" if the number is even, otherwise answer "no".');
   const comparisonData = () => {
     const checkNumber = randomNumber(MAX_NUMBER, MIN_NUMBER);
     runQuestion(`${checkNumber}`);
