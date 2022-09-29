@@ -3,11 +3,12 @@
 import randomNumber from '../utils.js';
 import { doIterations, startGame } from '../index.js';
 
+const MAX_ARRAY_NUMBER = 10;
+const MIN_ARRAY_NUMBER = 5;
+
 const createProgression = (number, increment) => {
-  const MAX_NUMBER = 10;
-  const MIN_NUMBER = 5;
-  const progressionLength = randomNumber(MIN_NUMBER, MAX_NUMBER);
   const tempArray = [];
+  const progressionLength = randomNumber(MIN_ARRAY_NUMBER, MAX_ARRAY_NUMBER);
   for (let i = number; tempArray.length < progressionLength; i += increment) {
     tempArray.push(i);
   }

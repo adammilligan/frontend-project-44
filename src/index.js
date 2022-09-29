@@ -21,8 +21,6 @@ export const doIterations = (comparisonData) => {
 Let's try again, ${name}!`);
       return;
     }
-    if (i === numberOfRound - 1) {
-      console.log(`Congratulations, ${name}!`);
-    }
   }
+  console.log(`Congratulations, ${name}!`);
 };
