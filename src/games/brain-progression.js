@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import randomNumber from '../utils.js';
-import { doIterations,startGame } from '../index.js';
+import { doIterations, startGame } from '../index.js';
 
 const createProgression = (number, increment) => {
   const MAX_NUMBER = 10;

@@ -14,7 +14,6 @@ export const doIterations = (comparisonData) => {
 
   for (let i = 0; i < numberOfRound; i += 1) {
     const { result, answer } = comparisonData();
-
     if (result === answer) {
       console.log('Correct!');
     } else {
@@ -22,7 +21,6 @@ export const doIterations = (comparisonData) => {
 Let's try again, ${name}!`);
       return;
     }
-
     if (i === numberOfRound - 1) {
       console.log(`Congratulations, ${name}!`);
     }
