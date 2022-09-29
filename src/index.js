@@ -8,8 +8,9 @@ export const startGame = (questionString) => {
   return (readlineSync.question('Your answer: ')).toLowerCase();
 };
 
-export const doIterations = (comparisonData) => {
+export const doIterations = (comparisonData, gameRules) => {
   const name = getUser();
+  console.log(gameRules);
   const numberOfRound = 3;
 
   for (let i = 0; i < numberOfRound; i += 1) {

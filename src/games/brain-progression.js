@@ -5,6 +5,7 @@ import { doIterations, startGame } from '../index.js';
 
 const MAX_ARRAY_NUMBER = 10;
 const MIN_ARRAY_NUMBER = 5;
+const gameRules = 'What number is missing in the progression?';
 
 const createProgression = (number, increment) => {
   const tempArray = [];
@@ -21,7 +22,6 @@ const MAX_INCREMENT_NUMBER = 10;
 
 export default () => {
   const comparisonData = () => {
-    console.log('What number is missing in the progression?');
     const firstNumber = randomNumber(MIN_NUMBER, MAX_NUMBER);
     const increment = randomNumber(MIN_NUMBER, MAX_INCREMENT_NUMBER);
     const tempArray = createProgression(firstNumber, increment);
@@ -34,5 +34,5 @@ export default () => {
       answer,
     };
   };
-  doIterations(comparisonData);
+  doIterations(comparisonData, gameRules);
 };

@@ -5,6 +5,7 @@ import { doIterations, startGame } from '../index.js';
 
 const MAX_NUMBER = 100;
 const MIN_NUMBER = 1;
+const gameRules = 'What is the result of the expression?';
 
 const calc = (firstNumber, secondNumber, operation) => {
   switch (operation) {
@@ -21,7 +22,6 @@ const calc = (firstNumber, secondNumber, operation) => {
 
 export default () => {
   const expressionResult = () => {
-    const gameRules = console.log('What is the result of the expression?');
     const firstOperand = randomNumber(MAX_NUMBER, MIN_NUMBER);
     const secondOperand = randomNumber(MAX_NUMBER, MIN_NUMBER);
     const operationsArray = ['+', '-', '*'];
@@ -32,8 +32,7 @@ export default () => {
     return {
       answer,
       result,
-      gameRules,
     };
   };
-  doIterations(expressionResult);
+  doIterations(expressionResult, gameRules);
 };
