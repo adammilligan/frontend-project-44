@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 
 import randomNumber from '../utils.js';
-import { doIterations, doYouAnswer, runQuestion } from '../index.js';
-import getUser from '../cli.js';
+import { doIterations, startGame } from '../index.js';
 
 const MAX_NUMBER = 100;
 const MIN_NUMBER = 1;
@@ -17,17 +16,15 @@ const isPrimeNum = (num) => {
 };
 
 export default () => {
-  const name = getUser();
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
   const comparisonData = () => {
+    console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
     const checkNumber = randomNumber(MAX_NUMBER, MIN_NUMBER);
-    runQuestion(`${checkNumber}`);
     const result = isPrimeNum(checkNumber) ? 'yes' : 'no';
-    const answer = doYouAnswer();
+    const answer = startGame(`${checkNumber}`);
     return {
       result,
       answer,
     };
   };
-  doIterations(name, comparisonData);
+  doIterations(comparisonData);
 };

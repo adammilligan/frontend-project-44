@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 
 import randomNumber from '../utils.js';
-import { doIterations, doYouAnswer, runQuestion } from '../index.js';
-import getUser from '../cli.js';
+import { doIterations, startGame } from '../index.js';
 
 const MAX_NUMBER = 100;
 const MIN_NUMBER = 1;
@@ -10,17 +9,15 @@ const MIN_NUMBER = 1;
 const isEven = (checkNumber) => checkNumber % 2 === 0;
 
 export default () => {
-  const name = getUser();
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
   const comparisonData = () => {
+    console.log('Answer "yes" if the number is even, otherwise answer "no".');
     const checkNumber = randomNumber(MAX_NUMBER, MIN_NUMBER);
-    runQuestion(`${checkNumber}`);
+    const answer = startGame(`${checkNumber}`);
     const result = isEven(checkNumber) ? 'yes' : 'no';
-    const answer = (doYouAnswer());
     return {
       result,
       answer,
     };
   };
-  doIterations(name, comparisonData);
+  doIterations(comparisonData);
 };
