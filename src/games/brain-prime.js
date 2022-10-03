@@ -1,9 +1,9 @@
 import randomNumber from '../utils.js';
 import startGame from '../index.js';
 
-const MAX_NUMBER = 100;
-const MIN_NUMBER = 1;
-const gameRule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+const maxNumber = 100;
+const minNumber = 1;
+const gameRule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrimeNum = (num) => {
   for (let i = 2; i < num; i += 1) {
@@ -16,7 +16,7 @@ const isPrimeNum = (num) => {
 
 export default () => {
   const comparisonData = () => {
-    const checkNumber = randomNumber(MAX_NUMBER, MIN_NUMBER);
+    const checkNumber = randomNumber(maxNumber, minNumber);
     const result = isPrimeNum(checkNumber) ? 'yes' : 'no';
     return {
       result,
