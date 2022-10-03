@@ -22,7 +22,7 @@ export default () => {
     const result = isPrimeNum(checkNumber) ? 'yes' : 'no';
     return {
       result,
-      question: String(checkNumber),
+      question: checkNumber,
     };
   };
   startGame(comparisonData, gameRule);
