@@ -1,20 +1,22 @@
-import createRandomNumber from '../utils.js';
+#!/usr/bin/env node
+
+import randomNumber from '../utils.js';
 import startGame from '../index.js';
 
-const maxNumber = 100;
-const minNumber = 1;
-const gameRule = 'Answer "yes" if the number is even, otherwise answer "no".';
+const MAX_NUMBER = 100;
+const MIN_NUMBER = 1;
+const gameRules = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const isEven = (checkNumber) => checkNumber % 2 === 0;
 
 export default () => {
-  const toCompareData = () => {
-    const checkNumber = createRandomNumber(maxNumber, minNumber);
+  const comparisonData = () => {
+    const checkNumber = randomNumber(MAX_NUMBER, MIN_NUMBER);
     const result = isEven(checkNumber) ? 'yes' : 'no';
     return {
       result,
-      question: String(checkNumber),
+      questionString: `${checkNumber}`,
     };
   };
-  startGame(toCompareData, gameRule);
+  startGame(comparisonData, gameRules);
 };
