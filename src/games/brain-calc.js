@@ -5,7 +5,7 @@ import startGame from '../index.js';
 
 const MAX_NUMBER = 100;
 const MIN_NUMBER = 1;
-const gameRules = 'What is the result of the expression?';
+const gameRule = 'What is the result of the expression?';
 
 const calc = (firstNumber, secondNumber, operation) => {
   switch (operation) {
@@ -29,9 +29,9 @@ export default () => {
     const operation = operationsArray[randomIndex];
     const result = String(calc(firstOperand, secondOperand, operation));
     return {
-      questionString: `${firstOperand} ${operation} ${secondOperand}`,
+      question: `${firstOperand} ${operation} ${secondOperand}`,
       result,
     };
   };
-  startGame(expressionResult, gameRules);
+  startGame(expressionResult, gameRule);
 };

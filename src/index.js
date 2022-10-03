@@ -3,13 +3,13 @@
 import readlineSync from 'readline-sync';
 import getUser from './cli.js';
 
-export default (comparisonData, gameRules) => {
+export default (comparisonData, gameRule) => {
   const name = getUser();
   const numberOfRound = 3;
-  console.log(gameRules);
+  console.log(gameRule);
   for (let i = 0; i < numberOfRound; i += 1) {
-    const { result, questionString } = comparisonData();
-    console.log(`Question: ${questionString}`);
+    const { result, question } = comparisonData();
+    console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ').toLowerCase();
     if (result === answer) {
       console.log('Correct!');

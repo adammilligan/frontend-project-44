@@ -5,7 +5,7 @@ import startGame from '../index.js';
 
 const MAX_ARRAY_NUMBER = 10;
 const MIN_ARRAY_NUMBER = 5;
-const gameRules = 'What number is missing in the progression?';
+const gameRule = 'What number is missing in the progression?';
 
 const createProgression = (number, increment) => {
   const tempArray = [];
@@ -30,8 +30,8 @@ export default () => {
     tempArray[passNumber - 1] = '..';
     return {
       result,
-      questionString: `${tempArray.join(' ')}`,
+      question: `${tempArray.join(' ')}`,
     };
   };
-  startGame(comparisonData, gameRules);
+  startGame(comparisonData, gameRule);
 };

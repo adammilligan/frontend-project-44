@@ -5,7 +5,7 @@ import startGame from '../index.js';
 
 const MAX_NUMBER = 100;
 const MIN_NUMBER = 1;
-const gameRules = 'Answer "yes" if the number is even, otherwise answer "no".';
+const gameRule = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const isEven = (checkNumber) => checkNumber % 2 === 0;
 
@@ -15,8 +15,8 @@ export default () => {
     const result = isEven(checkNumber) ? 'yes' : 'no';
     return {
       result,
-      questionString: `${checkNumber}`,
+      question: `${checkNumber}`,
     };
   };
-  startGame(comparisonData, gameRules);
+  startGame(comparisonData, gameRule);
 };

@@ -5,7 +5,7 @@ import startGame from '../index.js';
 
 const MAX_NUMBER = 100;
 const MIN_NUMBER = 1;
-const gameRules = 'Find the greatest common divisor of given numbers.';
+const gameRule = 'Find the greatest common divisor of given numbers.';
 
 const makeGcd = (x, y) => {
   let temporaryX = x;
@@ -30,8 +30,8 @@ export default () => {
     const result = String(makeGcd(firstOperand, secondOperand));
     return {
       result,
-      questionString: `${firstOperand} ${secondOperand}`,
+      question: `${firstOperand} ${secondOperand}`,
     };
   };
-  startGame(comparisonData, gameRules);
+  startGame(comparisonData, gameRule);
 };
