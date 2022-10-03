@@ -5,6 +5,7 @@ import startGame from '../index.js';
 
 const MAX_NUMBER = 100;
 const MIN_NUMBER = 1;
+const operationsArray = ['+', '-', '*'];
 const gameRule = 'What is the result of the expression?';
 
 const calc = (firstNumber, secondNumber, operation) => {
@@ -21,10 +22,9 @@ const calc = (firstNumber, secondNumber, operation) => {
 };
 
 export default () => {
-  const expressionResult = () => {
+  const doCalcExpression = () => {
     const firstOperand = createRandomNumber(MAX_NUMBER, MIN_NUMBER);
     const secondOperand = createRandomNumber(MAX_NUMBER, MIN_NUMBER);
-    const operationsArray = ['+', '-', '*'];
     const randomIndex = createRandomNumber(0, operationsArray.length - 1);
     const operation = operationsArray[randomIndex];
     const result = String(calc(firstOperand, secondOperand, operation));
@@ -33,5 +33,5 @@ export default () => {
       result,
     };
   };
-  startGame(expressionResult, gameRule);
+  startGame(doCalcExpression, gameRule);
 };

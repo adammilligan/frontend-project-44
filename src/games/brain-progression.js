@@ -21,7 +21,7 @@ const MIN_NUMBER = 1;
 const MAX_INCREMENT_NUMBER = 10;
 
 export default () => {
-  const comparisonData = () => {
+  const toCompareData = () => {
     const firstNumber = createRandomNumber(MIN_NUMBER, MAX_NUMBER);
     const increment = createRandomNumber(MIN_NUMBER, MAX_INCREMENT_NUMBER);
     const tempArray = createProgression(firstNumber, increment);
@@ -33,5 +33,5 @@ export default () => {
       question: `${tempArray.join(' ')}`,
     };
   };
-  startGame(comparisonData, gameRule);
+  startGame(toCompareData, gameRule);
 };

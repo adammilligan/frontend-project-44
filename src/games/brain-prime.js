@@ -17,7 +17,7 @@ const isPrimeNum = (num) => {
 };
 
 export default () => {
-  const comparisonData = () => {
+  const toCompareData = () => {
     const checkNumber = createRandomNumber(MAX_NUMBER, MIN_NUMBER);
     const result = isPrimeNum(checkNumber) ? 'yes' : 'no';
     return {
@@ -25,5 +25,5 @@ export default () => {
       question: `${checkNumber}`,
     };
   };
-  startGame(comparisonData, gameRule);
+  startGame(toCompareData, gameRule);
 };

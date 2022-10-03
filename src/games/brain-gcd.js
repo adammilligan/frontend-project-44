@@ -24,7 +24,7 @@ const makeGcd = (x, y) => {
 };
 
 export default () => {
-  const comparisonData = () => {
+  const toCompareData = () => {
     const firstOperand = createRandomNumber(MAX_NUMBER, MIN_NUMBER);
     const secondOperand = createRandomNumber(MAX_NUMBER, MIN_NUMBER);
     const result = String(makeGcd(firstOperand, secondOperand));
@@ -33,5 +33,5 @@ export default () => {
       question: `${firstOperand} ${secondOperand}`,
     };
   };
-  startGame(comparisonData, gameRule);
+  startGame(toCompareData, gameRule);
 };
