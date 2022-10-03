@@ -25,9 +25,9 @@ export default () => {
     const firstNumber = createRandomNumber(MIN_NUMBER, MAX_NUMBER);
     const increment = createRandomNumber(MIN_NUMBER, MAX_INCREMENT_NUMBER);
     const tempArray = createProgression(firstNumber, increment);
-    const passNumber = createRandomNumber(MIN_NUMBER, tempArray.length);
-    const result = String(tempArray[passNumber - 1]);
-    tempArray[passNumber - 1] = '..';
+    const passNumber = (createRandomNumber(MIN_NUMBER, tempArray.length) - 1);
+    const result = String(tempArray[passNumber]);
+    tempArray[passNumber] = '..';
     return {
       result,
       question: `${tempArray.join(' ')}`,
