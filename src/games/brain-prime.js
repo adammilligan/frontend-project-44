@@ -3,7 +3,7 @@ import startGame from '../index.js';
 
 const maxNumber = 100;
 const minNumber = 1;
-const gameRule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const gameRule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
 const isPrimeNum = (num) => {
   for (let i = 2; i < num; i += 1) {
