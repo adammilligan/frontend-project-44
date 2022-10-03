@@ -3,8 +3,8 @@
 import createRandomNumber from '../utils.js';
 import startGame from '../index.js';
 
-const MAX_NUMBER = 100;
-const MIN_NUMBER = 1;
+const maxNumber = 100;
+const minNumber = 1;
 const gameRule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrimeNum = (num) => {
@@ -17,13 +17,13 @@ const isPrimeNum = (num) => {
 };
 
 export default () => {
-  const toCompareData = () => {
-    const checkNumber = createRandomNumber(MAX_NUMBER, MIN_NUMBER);
+  const comparisonData = () => {
+    const checkNumber = createRandomNumber(maxNumber, minNumber);
     const result = isPrimeNum(checkNumber) ? 'yes' : 'no';
     return {
       result,
       question: `${checkNumber}`,
     };
   };
-  startGame(toCompareData, gameRule);
+  startGame(comparisonData, gameRule);
 };
