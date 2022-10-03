@@ -1,13 +1,11 @@
-#!/usr/bin/env node
-
-import randomNumber from '../utils.js';
+import createRandomNumber from '../utils.js';
 import startGame from '../index.js';
 
-const MAX_NUMBER = 100;
-const MIN_NUMBER = 1;
-const gameRules = 'Find the greatest common divisor of given numbers.';
+const maxNumber = 100;
+const minNumber = 1;
+const gameRule = 'Find the greatest common divisor of given numbers.';
 
-const makeGcd = (x, y) => {
+const toFindGcd = (x, y) => {
   let temporaryX = x;
   let temporaryY = y;
   if (temporaryX === 0) {
@@ -25,13 +23,13 @@ const makeGcd = (x, y) => {
 
 export default () => {
   const comparisonData = () => {
-    const firstOperand = randomNumber(MAX_NUMBER, MIN_NUMBER);
-    const secondOperand = randomNumber(MAX_NUMBER, MIN_NUMBER);
-    const result = String(makeGcd(firstOperand, secondOperand));
+    const firstOperand = createRandomNumber(maxNumber, minNumber);
+    const secondOperand = createRandomNumber(maxNumber, minNumber);
+    const result = String(toFindGcd(firstOperand, secondOperand));
     return {
       result,
-      questionString: `${firstOperand} ${secondOperand}`,
+      question: `${firstOperand} ${secondOperand}`,
     };
   };
-  startGame(comparisonData, gameRules);
+  startGame(comparisonData, gameRule);
 };

@@ -1,11 +1,9 @@
-#!/usr/bin/env node
-
 import randomNumber from '../utils.js';
 import startGame from '../index.js';
 
 const MAX_NUMBER = 100;
 const MIN_NUMBER = 1;
-const gameRules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const gameRule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrimeNum = (num) => {
   for (let i = 2; i < num; i += 1) {
@@ -22,8 +20,8 @@ export default () => {
     const result = isPrimeNum(checkNumber) ? 'yes' : 'no';
     return {
       result,
-      questionString: `${checkNumber}`,
+      question: `${checkNumber}`,
     };
   };
-  startGame(comparisonData, gameRules);
+  startGame(comparisonData, gameRule);
 };

@@ -1,11 +1,10 @@
-#!/usr/bin/env node
-
-import randomNumber from '../utils.js';
+import createRandomNumber from '../utils.js';
 import startGame from '../index.js';
 
-const MAX_NUMBER = 100;
-const MIN_NUMBER = 1;
-const gameRules = 'What is the result of the expression?';
+const maxNumber = 100;
+const minNumber = 1;
+const operationsArray = ['+', '-', '*'];
+const gameRule = 'What is the result of the expression?';
 
 const calc = (firstNumber, secondNumber, operation) => {
   switch (operation) {
@@ -21,17 +20,16 @@ const calc = (firstNumber, secondNumber, operation) => {
 };
 
 export default () => {
-  const expressionResult = () => {
-    const firstOperand = randomNumber(MAX_NUMBER, MIN_NUMBER);
-    const secondOperand = randomNumber(MAX_NUMBER, MIN_NUMBER);
-    const operationsArray = ['+', '-', '*'];
-    const randomIndex = randomNumber(0, operationsArray.length - 1);
+  const doCalcExpression = () => {
+    const firstOperand = createRandomNumber(maxNumber, minNumber);
+    const secondOperand = createRandomNumber(maxNumber, minNumber);
+    const randomIndex = createRandomNumber(0, operationsArray.length - 1);
     const operation = operationsArray[randomIndex];
     const result = String(calc(firstOperand, secondOperand, operation));
     return {
-      questionString: `${firstOperand} ${operation} ${secondOperand}`,
+      question: `${firstOperand} ${operation} ${secondOperand}`,
       result,
     };
   };
-  startGame(expressionResult, gameRules);
+  startGame(doCalcExpression, gameRule);
 };
