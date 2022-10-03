@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import randomNumber from '../utils.js';
+import createRandomNumber from '../utils.js';
 import startGame from '../index.js';
 
 const MAX_NUMBER = 100;
@@ -25,8 +25,8 @@ const makeGcd = (x, y) => {
 
 export default () => {
   const comparisonData = () => {
-    const firstOperand = randomNumber(MAX_NUMBER, MIN_NUMBER);
-    const secondOperand = randomNumber(MAX_NUMBER, MIN_NUMBER);
+    const firstOperand = createRandomNumber(MAX_NUMBER, MIN_NUMBER);
+    const secondOperand = createRandomNumber(MAX_NUMBER, MIN_NUMBER);
     const result = String(makeGcd(firstOperand, secondOperand));
     return {
       result,

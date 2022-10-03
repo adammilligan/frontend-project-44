@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import randomNumber from '../utils.js';
+import createRandomNumber from '../utils.js';
 import startGame from '../index.js';
 
 const MAX_NUMBER = 100;
@@ -22,10 +22,10 @@ const calc = (firstNumber, secondNumber, operation) => {
 
 export default () => {
   const expressionResult = () => {
-    const firstOperand = randomNumber(MAX_NUMBER, MIN_NUMBER);
-    const secondOperand = randomNumber(MAX_NUMBER, MIN_NUMBER);
+    const firstOperand = createRandomNumber(MAX_NUMBER, MIN_NUMBER);
+    const secondOperand = createRandomNumber(MAX_NUMBER, MIN_NUMBER);
     const operationsArray = ['+', '-', '*'];
-    const randomIndex = randomNumber(0, operationsArray.length - 1);
+    const randomIndex = createRandomNumber(0, operationsArray.length - 1);
     const operation = operationsArray[randomIndex];
     const result = String(calc(firstOperand, secondOperand, operation));
     return {

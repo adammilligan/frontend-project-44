@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import randomNumber from '../utils.js';
+import createRandomNumber from '../utils.js';
 import startGame from '../index.js';
 
 const MAX_NUMBER = 100;
@@ -18,7 +18,7 @@ const isPrimeNum = (num) => {
 
 export default () => {
   const comparisonData = () => {
-    const checkNumber = randomNumber(MAX_NUMBER, MIN_NUMBER);
+    const checkNumber = createRandomNumber(MAX_NUMBER, MIN_NUMBER);
     const result = isPrimeNum(checkNumber) ? 'yes' : 'no';
     return {
       result,
