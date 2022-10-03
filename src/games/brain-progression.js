@@ -6,12 +6,12 @@ import startGame from '../index.js';
 const maxNumber = 100;
 const minNumber = 1;
 const maxIncrementNumber = 10;
-const minProgressionLength = 5;
+const maxArrayNumber = 10;
+const minArrayNumber = 5;
 const gameRule = 'What number is missing in the progression?';
 
-const createProgression = (number, increment, maxProgressionLength) => {
+const createProgression = (number, increment, progressionLength) => {
   const tempArray = [];
-  const progressionLength = createRandomNumber(minProgressionLength, maxProgressionLength);
   for (let i = number; tempArray.length < progressionLength; i += increment) {
     tempArray.push(i);
   }
@@ -22,7 +22,8 @@ export default () => {
   const toCompareData = () => {
     const firstNumber = createRandomNumber(minNumber, maxNumber);
     const increment = createRandomNumber(minNumber, maxIncrementNumber);
-    const tempArray = createProgression(firstNumber, increment, 10);
+    const progressionLength = createRandomNumber(minArrayNumber, maxArrayNumber);
+    const tempArray = createProgression(firstNumber, increment, progressionLength);
     const passNumber = (createRandomNumber(minNumber, tempArray.length) - 1);
     const result = String(tempArray[passNumber]);
     tempArray[passNumber] = '..';

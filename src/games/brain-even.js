@@ -15,7 +15,7 @@ export default () => {
     const result = isEven(checkNumber) ? 'yes' : 'no';
     return {
       result,
-      question: `${checkNumber}`,
+      question: checkNumber,
     };
   };
   startGame(toCompareData, gameRule);
