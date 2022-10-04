@@ -17,12 +17,12 @@ const createProgression = (number, increment, progressionLength) => {
 };
 
 export default () => {
-  const toCompareData = () => {
+  const generateCondition = () => {
     const firstNumber = createRandomNumber(minNumber, maxNumber);
     const increment = createRandomNumber(minNumber, maxIncrementNumber);
     const progressionLength = createRandomNumber(minArrayNumber, maxArrayNumber);
     const tempArray = createProgression(firstNumber, increment, progressionLength);
-    const passNumber = (createRandomNumber(minNumber, tempArray.length) - 1);
+    const passNumber = createRandomNumber(minNumber, tempArray.length) - 1;
     const result = String(tempArray[passNumber]);
     tempArray[passNumber] = '..';
     return {
@@ -30,5 +30,5 @@ export default () => {
       question: `${tempArray.join(' ')}`,
     };
   };
-  startGame(toCompareData, gameRule);
+  startGame(generateCondition, gameRule);
 };

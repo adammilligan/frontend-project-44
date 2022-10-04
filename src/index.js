@@ -1,12 +1,12 @@
 import readlineSync from 'readline-sync';
 import getUser from './cli.js';
 
-export default (comparisonData, gameRule) => {
+export default (generateCondition, gameRule) => {
   const name = getUser();
   const numberOfRound = 3;
   console.log(gameRule);
   for (let i = 0; i < numberOfRound; i += 1) {
-    const { result, question } = comparisonData();
+    const { result, question } = generateCondition();
     console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ').toLowerCase();
     if (result === answer) {

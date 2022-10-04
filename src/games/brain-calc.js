@@ -20,7 +20,7 @@ const calc = (firstNumber, secondNumber, operation) => {
 };
 
 export default () => {
-  const doCalcExpression = () => {
+  const generateCondition = () => {
     const firstOperand = createRandomNumber(maxNumber, minNumber);
     const secondOperand = createRandomNumber(maxNumber, minNumber);
     const randomIndex = createRandomNumber(0, operationsArray.length - 1);
@@ -31,5 +31,5 @@ export default () => {
       result,
     };
   };
-  startGame(doCalcExpression, gameRule);
+  startGame(generateCondition, gameRule);
 };

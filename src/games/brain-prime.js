@@ -1,4 +1,4 @@
-import randomNumber from '../utils.js';
+import createRandomNumber from '../utils.js';
 import startGame from '../index.js';
 
 const maxNumber = 100;
@@ -15,13 +15,13 @@ const isPrimeNum = (num) => {
 };
 
 export default () => {
-  const comparisonData = () => {
-    const checkNumber = randomNumber(maxNumber, minNumber);
-    const result = isPrimeNum(checkNumber) ? 'yes' : 'no';
+  const generateCondition = () => {
+    const randomNumber = createRandomNumber(maxNumber, minNumber);
+    const result = isPrimeNum(randomNumber) ? 'yes' : 'no';
     return {
       result,
-      question: `${checkNumber}`,
+      question: `${randomNumber}`,
     };
   };
-  startGame(comparisonData, gameRule);
+  startGame(generateCondition, gameRule);
 };

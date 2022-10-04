@@ -22,7 +22,7 @@ const findGcd = (x, y) => {
 };
 
 export default () => {
-  const comparisonData = () => {
+  const generateCondition = () => {
     const firstOperand = createRandomNumber(maxNumber, minNumber);
     const secondOperand = createRandomNumber(maxNumber, minNumber);
     const result = String(findGcd(firstOperand, secondOperand));
@@ -31,5 +31,5 @@ export default () => {
       question: `${firstOperand} ${secondOperand}`,
     };
   };
-  startGame(comparisonData, gameRule);
+  startGame(generateCondition, gameRule);
 };

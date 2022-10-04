@@ -8,13 +8,13 @@ const gameRule = 'Answer "yes" if the number is even, otherwise answer "no".';
 const isEven = (checkNumber) => checkNumber % 2 === 0;
 
 export default () => {
-  const toCompareData = () => {
-    const checkNumber = createRandomNumber(maxNumber, minNumber);
-    const result = isEven(checkNumber) ? 'yes' : 'no';
+  const generateCondition = () => {
+    const randomNumber = createRandomNumber(maxNumber, minNumber);
+    const result = isEven(randomNumber) ? 'yes' : 'no';
     return {
       result,
-      question: String(checkNumber),
+      question: String(randomNumber),
     };
   };
-  startGame(toCompareData, gameRule);
+  startGame(generateCondition, gameRule);
 };
