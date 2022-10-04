@@ -5,7 +5,7 @@ const maxNumber = 100;
 const minNumber = 1;
 const gameRule = 'Find the greatest common divisor of given numbers.';
 
-const toFindGcd = (x, y) => {
+const findGcd = (x, y) => {
   let temporaryX = x;
   let temporaryY = y;
   if (temporaryX === 0) {
@@ -25,7 +25,7 @@ export default () => {
   const comparisonData = () => {
     const firstOperand = createRandomNumber(maxNumber, minNumber);
     const secondOperand = createRandomNumber(maxNumber, minNumber);
-    const result = String(toFindGcd(firstOperand, secondOperand));
+    const result = String(findGcd(firstOperand, secondOperand));
     return {
       result,
       question: `${firstOperand} ${secondOperand}`,
