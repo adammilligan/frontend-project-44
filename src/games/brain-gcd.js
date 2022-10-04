@@ -6,19 +6,12 @@ const minNumber = 1;
 const gameRule = 'Find the greatest common divisor of given numbers.';
 
 const findGcd = (x, y) => {
-  let temporaryX = x;
-  let temporaryY = y;
-  if (temporaryX === 0) {
-    return temporaryY;
+  const max = x > y ? x : y;
+  const min = x < y ? x : y;
+  if (max % min === 0) {
+    return min;
   }
-  while (temporaryY !== 0) {
-    if (temporaryX > temporaryY) {
-      temporaryX -= temporaryY;
-    } else {
-      temporaryY -= temporaryX;
-    }
-  }
-  return temporaryX;
+  return findGcd(min, max % min);
 };
 
 export default () => {
