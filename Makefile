@@ -22,5 +22,5 @@ brain-progression: #запускает игру brain-progression:
 publish: #
 	npm publish --dry-run
 
-make lint: #линтер
-	npx eslint.
+lint: #линтер
+	npx eslint .
